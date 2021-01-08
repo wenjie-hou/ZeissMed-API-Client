@@ -7,7 +7,7 @@
 import Foundation
 
 open class OpenAPIClientAPI {
-    public static var basePath = "https://ios2021zeissmed.ase.in.tum.de/api"
+    public static var basePath = "http://ios2021zeissmed.ase.in.tum.de/api"
     public static var credential: URLCredential?
     public static var customHeaders: [String:String] = [:]
     public static var requestBuilderFactory: RequestBuilderFactory = URLSessionRequestBuilderFactory()

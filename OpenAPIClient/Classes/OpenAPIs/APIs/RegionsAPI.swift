@@ -51,11 +51,12 @@ open class RegionsAPI {
      - parameter sap: (query) filter region or project by sap number (optional)
      - parameter status: (query) filter region or project by status list (optional)
      - parameter bu: (query) filter region or project by business_unit (optional)
+     - parameter manager: (query) filter region or project by manager id (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func regionsFilter(sap: String? = nil, status: String? = nil, bu: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Project]?,_ error: Error?) -> Void)) {
-        regionsFilterWithRequestBuilder(sap: sap, status: status, bu: bu).execute(apiResponseQueue) { result -> Void in
+    open class func regionsFilter(sap: String? = nil, status: String? = nil, bu: String? = nil, manager: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Project]?,_ error: Error?) -> Void)) {
+        regionsFilterWithRequestBuilder(sap: sap, status: status, bu: bu, manager: manager).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -67,16 +68,17 @@ open class RegionsAPI {
 
     /**
      - GET /regions/filter/
-     - Filter the Region by the given parameter Possible filters:     - status (list)     - business units name (list)     - sap_number
+     - Filter the Region by the given parameter Possible filters:     - manager (list)     - status (list)     - business units name (list)     - sap_number
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
      - parameter sap: (query) filter region or project by sap number (optional)
      - parameter status: (query) filter region or project by status list (optional)
      - parameter bu: (query) filter region or project by business_unit (optional)
+     - parameter manager: (query) filter region or project by manager id (optional)
      - returns: RequestBuilder<[Project]> 
      */
-    open class func regionsFilterWithRequestBuilder(sap: String? = nil, status: String? = nil, bu: String? = nil) -> RequestBuilder<[Project]> {
+    open class func regionsFilterWithRequestBuilder(sap: String? = nil, status: String? = nil, bu: String? = nil, manager: String? = nil) -> RequestBuilder<[Project]> {
         let path = "/regions/filter/"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -85,7 +87,8 @@ open class RegionsAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "sap": sap?.encodeToJSON(), 
             "status": status?.encodeToJSON(), 
-            "bu": bu?.encodeToJSON()
+            "bu": bu?.encodeToJSON(), 
+            "manager": manager?.encodeToJSON()
         ])
 
         let requestBuilder: RequestBuilder<[Project]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()

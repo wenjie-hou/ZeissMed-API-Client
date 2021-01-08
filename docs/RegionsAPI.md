@@ -1,6 +1,6 @@
 # RegionsAPI
 
-All URIs are relative to *https://ios2021zeissmed.ase.in.tum.de/api*
+All URIs are relative to *http://ios2021zeissmed.ase.in.tum.de/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -59,12 +59,12 @@ This endpoint does not need any parameter.
 
 # **regionsFilter**
 ```swift
-    open class func regionsFilter(sap: String? = nil, status: String? = nil, bu: String? = nil, completion: @escaping (_ data: [Project]?, _ error: Error?) -> Void)
+    open class func regionsFilter(sap: String? = nil, status: String? = nil, bu: String? = nil, manager: String? = nil, completion: @escaping (_ data: [Project]?, _ error: Error?) -> Void)
 ```
 
 
 
-Filter the Region by the given parameter Possible filters:     - status (list)     - business units name (list)     - sap_number
+Filter the Region by the given parameter Possible filters:     - manager (list)     - status (list)     - business units name (list)     - sap_number
 
 ### Example 
 ```swift
@@ -74,8 +74,9 @@ import OpenAPIClient
 let sap = "sap_example" // String | filter region or project by sap number (optional)
 let status = "status_example" // String | filter region or project by status list (optional)
 let bu = "bu_example" // String | filter region or project by business_unit (optional)
+let manager = "manager_example" // String | filter region or project by manager id (optional)
 
-RegionsAPI.regionsFilter(sap: sap, status: status, bu: bu) { (response, error) in
+RegionsAPI.regionsFilter(sap: sap, status: status, bu: bu, manager: manager) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -94,6 +95,7 @@ Name | Type | Description  | Notes
  **sap** | **String** | filter region or project by sap number | [optional] 
  **status** | **String** | filter region or project by status list | [optional] 
  **bu** | **String** | filter region or project by business_unit | [optional] 
+ **manager** | **String** | filter region or project by manager id | [optional] 
 
 ### Return type
 

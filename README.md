@@ -21,7 +21,7 @@ Run `pod install`
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://ios2021zeissmed.ase.in.tum.de/api*
+All URIs are relative to *http://ios2021zeissmed.ase.in.tum.de/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

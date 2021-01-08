@@ -1,6 +1,6 @@
 # GatesAPI
 
-All URIs are relative to *https://ios2021zeissmed.ase.in.tum.de/api*
+All URIs are relative to *http://ios2021zeissmed.ase.in.tum.de/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
