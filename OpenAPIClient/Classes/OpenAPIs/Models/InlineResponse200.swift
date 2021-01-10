@@ -10,10 +10,10 @@ import Foundation
 
 public struct InlineResponse200: Codable {
 
-    public var hasNext: Bool?
+    public var hasNext: Bool
     public var results: [Project]
 
-    public init(hasNext: Bool? = nil, results: [Project]) {
+    public init(hasNext: Bool, results: [Project]) {
         self.hasNext = hasNext
         self.results = results
     }

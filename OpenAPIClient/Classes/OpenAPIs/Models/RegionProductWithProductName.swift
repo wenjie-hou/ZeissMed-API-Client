@@ -15,14 +15,14 @@ public struct RegionProductWithProductName: Codable {
         case green = "green"
         case yellow = "yellow"
     }
-    public var id: Int?
+    public var id: Int
     public var authorizationDate: Date
-    public var status: Status?
+    public var status: Status
     public var currentAuthorizationDate: Date
-    public var monthlyData: [MonthlyData]?
-    public var region: String?
+    public var monthlyData: [MonthlyData]
+    public var region: String
 
-    public init(id: Int? = nil, authorizationDate: Date, status: Status? = nil, currentAuthorizationDate: Date, monthlyData: [MonthlyData]? = nil, region: String? = nil) {
+    public init(id: Int, authorizationDate: Date, status: Status, currentAuthorizationDate: Date, monthlyData: [MonthlyData], region: String) {
         self.id = id
         self.authorizationDate = authorizationDate
         self.status = status

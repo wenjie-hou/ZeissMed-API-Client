@@ -10,12 +10,12 @@ import Foundation
 
 public struct ManagerSimplified: Codable {
 
-    public var id: Int?
-    public var firstName: String?
-    public var lastName: String?
-    public var email: String?
+    public var id: Int
+    public var firstName: String
+    public var lastName: String
+    public var email: String
 
-    public init(id: Int? = nil, firstName: String? = nil, lastName: String? = nil, email: String? = nil) {
+    public init(id: Int, firstName: String, lastName: String, email: String) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName

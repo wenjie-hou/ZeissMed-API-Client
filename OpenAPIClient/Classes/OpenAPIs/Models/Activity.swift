@@ -10,10 +10,10 @@ import Foundation
 
 public struct Activity: Codable {
 
-    public var id: Int?
+    public var id: Int
     public var description: String
 
-    public init(id: Int? = nil, description: String) {
+    public init(id: Int, description: String) {
         self.id = id
         self.description = description
     }

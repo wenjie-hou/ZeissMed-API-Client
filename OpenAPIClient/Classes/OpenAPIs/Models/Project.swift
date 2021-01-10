@@ -15,20 +15,20 @@ public struct Project: Codable {
         case green = "green"
         case yellow = "yellow"
     }
-    public var id: Int?
+    public var id: Int
     public var name: String
     public var sapNumber: String
-    public var status: Status?
+    public var status: Status
     public var approvedDate: Date
-    public var originalProjectMonths: Int?
-    public var expectedProjectMonths: Int?
-    public var ongoingActivities: [Activity]?
-    public var challenges: [Challenge]?
-    public var manager: ManagerSimplified?
-    public var gates: [Gate]?
+    public var originalProjectMonths: Int
+    public var expectedProjectMonths: Int
+    public var ongoingActivities: [Activity]
+    public var challenges: [Challenge]
+    public var manager: ManagerSimplified
+    public var gates: [Gate]
     public var businessUnit: String
 
-    public init(id: Int? = nil, name: String, sapNumber: String, status: Status? = nil, approvedDate: Date, originalProjectMonths: Int? = nil, expectedProjectMonths: Int? = nil, ongoingActivities: [Activity]? = nil, challenges: [Challenge]? = nil, manager: ManagerSimplified? = nil, gates: [Gate]? = nil, businessUnit: String) {
+    public init(id: Int, name: String, sapNumber: String, status: Status, approvedDate: Date, originalProjectMonths: Int, expectedProjectMonths: Int, ongoingActivities: [Activity], challenges: [Challenge], manager: ManagerSimplified, gates: [Gate], businessUnit: String) {
         self.id = id
         self.name = name
         self.sapNumber = sapNumber

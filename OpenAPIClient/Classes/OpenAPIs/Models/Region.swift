@@ -15,17 +15,17 @@ public struct Region: Codable {
         case green = "green"
         case yellow = "yellow"
     }
-    public var id: Int?
+    public var id: Int
     public var name: String
     public var sapNumber: String
-    public var status: Status?
+    public var status: Status
     public var startOfReportingPeriod: Date
-    public var challenges: [Challenge]?
-    public var ongoingActivities: [Activity]?
-    public var regionProducts: [RegionProductWithProductName]?
-    public var manager: ManagerSimplified?
+    public var challenges: [Challenge]
+    public var ongoingActivities: [Activity]
+    public var regionProducts: [RegionProductWithProductName]
+    public var manager: ManagerSimplified
 
-    public init(id: Int? = nil, name: String, sapNumber: String, status: Status? = nil, startOfReportingPeriod: Date, challenges: [Challenge]? = nil, ongoingActivities: [Activity]? = nil, regionProducts: [RegionProductWithProductName]? = nil, manager: ManagerSimplified? = nil) {
+    public init(id: Int, name: String, sapNumber: String, status: Status, startOfReportingPeriod: Date, challenges: [Challenge], ongoingActivities: [Activity], regionProducts: [RegionProductWithProductName], manager: ManagerSimplified) {
         self.id = id
         self.name = name
         self.sapNumber = sapNumber

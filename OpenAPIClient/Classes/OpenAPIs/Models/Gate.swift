@@ -15,13 +15,13 @@ public struct Gate: Codable {
         case green = "green"
         case yellow = "yellow"
     }
-    public var id: Int?
-    public var description: String?
-    public var status: Status?
-    public var currentTargetDate: Date?
-    public var monthlyData: [MonthlyData]?
+    public var id: Int
+    public var description: String
+    public var status: Status
+    public var currentTargetDate: Date
+    public var monthlyData: [MonthlyData]
 
-    public init(id: Int? = nil, description: String? = nil, status: Status? = nil, currentTargetDate: Date? = nil, monthlyData: [MonthlyData]? = nil) {
+    public init(id: Int, description: String, status: Status, currentTargetDate: Date, monthlyData: [MonthlyData]) {
         self.id = id
         self.description = description
         self.status = status

@@ -10,12 +10,12 @@ import Foundation
 
 public struct Product: Codable {
 
-    public var id: Int?
+    public var id: Int
     public var name: String
-    public var manager: ManagerSimplified?
-    public var regionProducts: [RegionProduct]?
+    public var manager: ManagerSimplified
+    public var regionProducts: [RegionProduct]
 
-    public init(id: Int? = nil, name: String, manager: ManagerSimplified? = nil, regionProducts: [RegionProduct]? = nil) {
+    public init(id: Int, name: String, manager: ManagerSimplified, regionProducts: [RegionProduct]) {
         self.id = id
         self.name = name
         self.manager = manager
