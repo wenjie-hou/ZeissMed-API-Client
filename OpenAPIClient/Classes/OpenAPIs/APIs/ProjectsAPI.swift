@@ -139,11 +139,12 @@ open class ProjectsAPI {
 
     /**
 
+     - parameter page: (query) Page Number (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func projectsList(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InlineResponse200?,_ error: Error?) -> Void)) {
-        projectsListWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+    open class func projectsList(page: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InlineResponse200?,_ error: Error?) -> Void)) {
+        projectsListWithRequestBuilder(page: page).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -158,14 +159,18 @@ open class ProjectsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
+     - parameter page: (query) Page Number (optional)
      - returns: RequestBuilder<InlineResponse200> 
      */
-    open class func projectsListWithRequestBuilder() -> RequestBuilder<InlineResponse200> {
+    open class func projectsListWithRequestBuilder(page: Int? = nil) -> RequestBuilder<InlineResponse200> {
         let path = "/projects/"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
-        let url = URLComponents(string: URLString)
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "page": page?.encodeToJSON()
+        ])
 
         let requestBuilder: RequestBuilder<InlineResponse200>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 

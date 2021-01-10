@@ -1,6 +1,6 @@
 # RegionsAPI
 
-All URIs are relative to *http://ios2021zeissmed.ase.in.tum.de/api*
+All URIs are relative to *http://localhost:8000/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 # **regionsList**
 ```swift
-    open class func regionsList(completion: @escaping (_ data: InlineResponse2001?, _ error: Error?) -> Void)
+    open class func regionsList(page: Int? = nil, completion: @escaping (_ data: InlineResponse2001?, _ error: Error?) -> Void)
 ```
 
 
@@ -124,8 +124,9 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let page = 987 // Int | Page Number (optional)
 
-RegionsAPI.regionsList() { (response, error) in
+RegionsAPI.regionsList(page: page) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -138,7 +139,10 @@ RegionsAPI.regionsList() { (response, error) in
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Int** | Page Number | [optional] 
 
 ### Return type
 

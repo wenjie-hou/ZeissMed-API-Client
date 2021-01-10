@@ -1,6 +1,6 @@
 # ChallengesAPI
 
-All URIs are relative to *http://ios2021zeissmed.ase.in.tum.de/api*
+All URIs are relative to *http://localhost:8000/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

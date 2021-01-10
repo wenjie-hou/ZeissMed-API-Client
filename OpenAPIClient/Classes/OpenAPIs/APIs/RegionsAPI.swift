@@ -98,11 +98,12 @@ open class RegionsAPI {
 
     /**
 
+     - parameter page: (query) Page Number (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func regionsList(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InlineResponse2001?,_ error: Error?) -> Void)) {
-        regionsListWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+    open class func regionsList(page: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InlineResponse2001?,_ error: Error?) -> Void)) {
+        regionsListWithRequestBuilder(page: page).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -117,14 +118,18 @@ open class RegionsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
+     - parameter page: (query) Page Number (optional)
      - returns: RequestBuilder<InlineResponse2001> 
      */
-    open class func regionsListWithRequestBuilder() -> RequestBuilder<InlineResponse2001> {
+    open class func regionsListWithRequestBuilder(page: Int? = nil) -> RequestBuilder<InlineResponse2001> {
         let path = "/regions/"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
-        let url = URLComponents(string: URLString)
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "page": page?.encodeToJSON()
+        ])
 
         let requestBuilder: RequestBuilder<InlineResponse2001>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
